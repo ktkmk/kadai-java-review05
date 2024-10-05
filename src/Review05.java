@@ -6,15 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 public class Review05 {
 
 
     public static void main(String[] args) {
-       
+
         Connection con = null;
-        Statement stmt = null;
         ResultSet rs = null;
         PreparedStatement preparedStatement = null;
 
@@ -27,7 +26,6 @@ public class Review05 {
                     "root",
                     "tensho9surde.93knmochy2orw7ru");
 
-            stmt = con.createStatement();
 
             System.out.print("検索キーワードを入力してください > ");
             String input = keyIn();
@@ -71,14 +69,7 @@ public class Review05 {
                     e.printStackTrace();
                 }
             }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("Statementを閉じるときにエラーが発生しました。");
-                    e.printStackTrace();
-                }
-            }
+
             if (con != null) {
                 try {
                     con.close();
